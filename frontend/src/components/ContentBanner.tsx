@@ -2,7 +2,9 @@ import React from 'react'
 
 const ContentBanner = () => {
   return (
-    <div>ContentBanner</div>
+    <div className='col-span-2 text-center border-black border-2'>
+      ContentBanner
+    </div>
   )
 }
 
