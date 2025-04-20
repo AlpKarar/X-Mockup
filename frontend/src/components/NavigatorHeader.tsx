@@ -10,6 +10,9 @@ const NavigatorHeader = () => {
     return (
       <div className='flex flex-col justify-between col-span-1 py-4 px-6 border-gray-800 border-[1px]'>
           <div>
+            <div className='relative left-[-px] mb-5 flex justify5-center items-center w-[45px] aspect-square rounded-[50%] hover:bg-gray-500 cursor-pointer'>
+              <img src={`./static/icons-x-${isDarkMode ? 'night' : 'day'}.png`} alt="X-logo" width="35"/>
+            </div>
             <nav className='flex flex-col gap-4'>
                 {linkItems.map((linkItem, idx) => {
                     return (<div key={idx} className='flex items-center gap-2'>
