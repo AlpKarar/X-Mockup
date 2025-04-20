@@ -13,7 +13,7 @@ const NavigatorHeader = () => {
             <nav className='flex flex-col gap-4'>
                 {linkItems.map((linkItem, idx) => {
                     return (<div key={idx} className='flex items-center gap-2'>
-                        <img src={isDarkMode ? linkItem.iconNightSrc : linkItem.iconDaySrc} width="36" height="36" />
+                        <img src={isDarkMode ? linkItem.iconNightSrc : linkItem.iconDaySrc} width="30" height="30" />
                         <a href={linkItem.linkPath}>
                             {linkItem.name}
                         </a>
