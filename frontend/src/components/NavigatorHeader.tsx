@@ -1,22 +1,27 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
 import linkItems from '../data/link-items'
 import accountContainerIcons from '../data/account-container-icons';
+import GeneralContext from '../context/GeneralContext';
 
 const NavigatorHeader = () => {
-    const [isDarkMode] = useState(window.matchMedia("(prefers-color-scheme: dark)"));
+    const context = useContext(GeneralContext)
+    const {isDarkMode} = context
     const btnBackgroundColor = isDarkMode ? 'white' : 'black'
     const btnColor = isDarkMode ? 'black' : 'white'
+    
 
     return (
-      <div className='flex flex-col justify-between col-span-1 py-4 px-6 border-gray-800 border-[1px]'>
+      <div className='flex flex-col justify-between col-span-1 py-4 px-5 border-gray-800 border-[1px]'>
           <div>
-            <div className='relative left-[-px] mb-5 flex justify5-center items-center w-[45px] aspect-square rounded-[50%] hover:bg-gray-500 cursor-pointer'>
-              <img src={`./static/icons-x-${isDarkMode ? 'night' : 'day'}.png`} alt="X-logo" width="35"/>
+            <div className='mb-5 px-2 w-full cursor-pointer'>
+              <div className='w-[45px] flex justify-start items-center rounded-[50%] aspect-square hover:bg-gray-700'>
+                <img src={`./static/icons-x-${isDarkMode ? 'night' : 'day'}.png`} alt="X-logo" width="40"/>
+              </div>
             </div>
             <nav className='flex flex-col gap-4'>
                 {linkItems.map((linkItem, idx) => {
-                    return (<div key={idx} className='flex items-center gap-2'>
-                        <img src={isDarkMode ? linkItem.iconNightSrc : linkItem.iconDaySrc} width="30" height="30" />
+                    return (<div key={idx} className='w-full flex justify-start items-center gap-6 rounded-[20px] hover:bg-gray-700 px-3 py-2 cursor-pointer'>
+                        <img src={isDarkMode ? linkItem.iconNightSrc : linkItem.iconDaySrc} alt="" width="30" height="30" />
                         <a href={linkItem.linkPath}>
                             {linkItem.name}
                         </a>

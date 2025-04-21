@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import GeneralContext from '../context/GeneralContext'
 
-const DayNightButton = (props: {
-    isDarkMode: boolean,
-    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
-}) => {
-    const {isDarkMode, setIsDarkMode} = props
+const DayNightButton = () => {
+    const context = useContext(GeneralContext)
+    const {isDarkMode, setIsDarkMode} = context
 
     return (
       <div className='absolute top-8 right-8 flex justify-center items-center w-[35px] aspect-square rounded-[50%] cursor-pointer hover:bg-gray-500'

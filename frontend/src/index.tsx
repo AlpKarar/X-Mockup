@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GeneralContext from './context/GeneralContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const GeneralContextProvider = ({children}: {children: React.ReactNode}) => {
+  const [isDarkMode, setIsDarkMode] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches)
+
+  return (
+    <GeneralContext.Provider value={{isDarkMode, setIsDarkMode}}>
+      {children}
+    </GeneralContext.Provider>
+  )
+}
+
 root.render(
   <React.StrictMode>
-    <App />
+    <GeneralContextProvider>
+      <App/>
+    </GeneralContextProvider>
   </React.StrictMode>
 );
 
